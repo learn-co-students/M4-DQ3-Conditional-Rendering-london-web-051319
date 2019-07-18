@@ -16,19 +16,19 @@ const MenuBar = (props) => {
   return (
     <div className="ui four item menu">
       <a className="item active" id="profile">
-        <i className="user large icon" id="profile"/>
+        <i className="user large icon" id="profile" onClick={() => props.handleClick('profile')}/>
       </a>
 
       <a className="item" id="photo">
-        <i className="photo large icon" id="photo"/>
+        <i className="photo large icon" id="photo" onClick={() => props.handleClick('photo')}/>
       </a>
 
       <a className="item" id="cocktail">
-        <i className="cocktail large icon" id="cocktail"/>
+        <i className="cocktail large icon" id="cocktail" onClick={() => props.handleClick('cocktail')}/>
       </a>
 
       <a className="item" id="pokemon"> 
-        <i className=" themeisle large icon" id="pokemon"/>
+        <i className=" themeisle large icon" id="pokemon" onClick={() => props.handleClick('pokemon')}/>
       </a>
     </div>
   )
