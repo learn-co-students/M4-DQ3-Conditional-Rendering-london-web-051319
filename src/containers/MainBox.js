@@ -3,7 +3,19 @@ import MenuBar from '../components/MenuBar.js'
 import { Profile, Photos, Cocktails, Pokemon} from '../components/Pages.js'
 
 class MainBox extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      selectedOption: ""
+    }
+  }
 
+  changeSelectedOption = (id) => {
+    // let menuOption = id.charAt(0).toUpperCase().splice(1)
+    this.setState({
+      selectedOption: id
+    })
+  }
 
   render() {
 
@@ -13,11 +25,28 @@ class MainBox extends React.Component {
 
     */
 
-    const detailsToDisplay = <div>Hi, I'm a div!</div>
+    let detailsToDisplay;
+
+    switch (this.state.selectedOption){
+      case "Profile":
+        detailsToDisplay = <Profile />
+        break
+      case "Cocktail":
+        detailsToDisplay = <Cocktails />
+        break
+      case "Photo":
+        detailsToDisplay = <Photos />
+        break
+      case "Pokemon":
+        detailsToDisplay = <Pokemon />
+        break
+    }
 
     return (
+      
+
       <div>
-        <MenuBar />
+        <MenuBar changeSelectedOption={this.changeSelectedOption}/>
         {detailsToDisplay}
       </div>
     )
